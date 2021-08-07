@@ -1,0 +1,31 @@
+public class MyClass {
+    public static void main(String args[]) {
+        int[] arr= {89,1,56,58,57,90,92,94,93,91,45};
+        printContigous(arr,10);
+      
+    }
+    
+    static void printContigous(int[] arr, int arr_len){
+        int maxLen=1;
+        int maxTill=1;
+        
+        for(int i=1;i<arr_len;i++){
+            //System.out.println("Maxlen for:"+i+" is "+maxLen+" and maxTill is :"+ maxTill);
+           // System.out.println(arr[i-1]+" "+arr[i]);
+            if(arr[i]>arr[i-1]){
+                ++maxLen;
+            }else{
+                if(maxLen>maxTill){
+                maxTill= maxLen;
+                }
+                maxLen=1;
+            }
+            
+        }
+         if(maxLen>maxTill)
+                maxTill= maxLen;
+        
+        System.out.println("Max length is : "+ maxTill);
+    }
+    
+}

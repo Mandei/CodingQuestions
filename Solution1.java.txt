@@ -1,0 +1,40 @@
+public class MyClass {
+    public static void main(String args[]) {
+      char[] sentence={'I',' ','a','m',' ','a',' ','v','e','r','y',' ','g','o','o','d',' ','e','n','g','i','n','e','e','r'};
+      char[] word={'v','e','r','y','o','f','o','u','r','t','w','o','o','n','e','w','o','r','l','d'};
+       replaceWord(sentence,22,word,4);
+    }
+    static void replaceWord(char[] sentence, int sen_len, char[] word,int word_length){
+        
+        int index=0;
+        int finalIndex=0;
+        for(int i=0;i<sen_len;i++)
+        {
+            int j=0;
+            if(sentence[i]==' ')
+                continue;
+            else{
+            for(j=0;j<word_length;j++){
+                int temp=i;
+                index=i;
+                if(sentence[temp]!=word[j]){
+                    break;
+                    }
+                    temp++;
+                }
+                if(j==word_length)
+                {
+                    finalIndex=index;
+                    break;
+                }
+            }
+        
+        for(int temp=finalIndex;temp<(sen_len-finalIndex-word_length-1);temp++)
+        {
+            sentence[temp]=sentence[temp+word_length+1];
+        }
+        
+    }
+    System.out.println(sentence);
+}
+}
